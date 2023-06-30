@@ -39,6 +39,6 @@ class ServiceUsersViewSetTest(APITestCase):
         Тест: возвращает всех пользователей
         """
         self.client.force_authenticate(self.staff_user)
-        self.assertQuerysetEqual(ServiceUsersViewSet().get_queryset(), ServiceUser.objects.all())
+        self.assertSequenceEqual(ServiceUsersViewSet().get_queryset(), [self.staff_user, self.common_user])
 
 
