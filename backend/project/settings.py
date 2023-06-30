@@ -123,15 +123,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
-        'rest_framework_simplejwt.authentication.JWTAuthentication'
-    ],
-    'DEFAULT_PERMISSION_CLASSES': [
-        'rest_framework.permissions.IsAuthenticated',
-    ],
+        'rest_framework.authentication.BasicAuthentication',
+        'rest_framework.authentication.SessionAuthentication',
+    ]
 }
-
-if DEBUG:
-    SIMPLE_JWT = {
-        'ACCESS_TOKEN_LIFETIME': timedelta(weeks=1),
-        'REFRESH_TOKEN_LIFETIME': timedelta(weeks=10),
-    }

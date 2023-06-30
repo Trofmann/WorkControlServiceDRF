@@ -1,3 +1,13 @@
-from django.shortcuts import render
+from rest_framework.permissions import IsAdminUser
+from rest_framework.viewsets import ModelViewSet
 
-# Create your views here.
+from .models import ServiceUser
+from .serializers import ServiceUserSerializer
+
+
+class ServiceUsersViewSet(ModelViewSet):
+    serializer_class = ServiceUserSerializer
+    permission_classes = [IsAdminUser]
+
+    def get_queryset(self):
+        return ServiceUser.objects.all()
