@@ -2,4 +2,5 @@ from django.contrib.auth.models import AbstractUser
 
 
 class ServiceUser(AbstractUser):
-    pass
+    class Meta(AbstractUser.Meta):
+        ordering = ('id',)

@@ -3,6 +3,7 @@ from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED
 from rest_framework.test import APITestCase, force_authenticate
 
 from ..models import ServiceUser
+from ..views import ServiceUsersViewSet
 
 
 class ServiceUsersViewSetTest(APITestCase):
@@ -32,3 +33,12 @@ class ServiceUsersViewSetTest(APITestCase):
         response = self.client.post(self.url, data)
         self.assertEqual(response.status_code, HTTP_201_CREATED)
         self.assertEqual(ServiceUser.objects.count(), 3)
+
+    def test_returns_all_users(self):
+        """
+        Тест: возвращает всех пользователей
+        """
+        self.client.force_authenticate(self.staff_user)
+        self.assertQuerysetEqual(ServiceUsersViewSet().get_queryset(), ServiceUser.objects.all())
+
+
