@@ -1,0 +1,39 @@
+###
+# Список предметов
+GET {{api_url}}/subjects
+Accept: application/json
+Authorization: Bearer {{access_token}}
+
+###
+# Получение конкретного предмета
+GET {{api_url}}/subjects/1
+Accept: application/json
+Authorization: Bearer {{access_token}}
+
+###
+# Добавление предмета
+POST {{api_url}}/subjects/
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+  "name": "Тест",
+  "comment": "Новый предмет"
+}
+
+###
+# Редактирование предмета
+PUT http://localhost:8000/api/subjects/4/
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+  "name": "ТЦОС",
+  "comment" : "Новый Предмет. Интересный"
+}
+
+###
+# Удаление предмета
+DELETE http://localhost:8000/api/subjects/6/
+Content-Type: application/json
+Authorization: Bearer {{access_token}}

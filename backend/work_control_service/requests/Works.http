@@ -1,0 +1,42 @@
+###
+# Список работ по предмету
+GET {{api_url}}/works/subject_id/1
+Accept: application/json
+Authorization: Bearer {{access_token}}
+
+###
+# Получение конкретной работы
+GET {{api_url}}/works/2
+Accept: application/json
+Authorization: Bearer {{access_token}}
+
+###
+# Добавление работы
+POST {{api_url}}/works/
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+  "subject": 1,
+  "name": "Лаба4",
+  "status": "Не начато",
+  "comment": "Тестирование"
+}
+
+###
+# Редактирование предмета
+PUT {{api_url}}/works/4/
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
+
+{
+  "subject": 1,
+  "status": "Не начато",
+  "name": "Лаба3"
+}
+
+###
+# Удаление предмета
+DELETE {{api_url}}/works/4/
+Content-Type: application/json
+Authorization: Bearer {{access_token}}
