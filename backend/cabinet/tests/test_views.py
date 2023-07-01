@@ -1,6 +1,6 @@
 from rest_framework.reverse import reverse
 from rest_framework.status import HTTP_200_OK, HTTP_201_CREATED
-from rest_framework.test import APITestCase, force_authenticate
+from rest_framework.test import APITestCase
 
 from ..models import ServiceUser
 from ..views import ServiceUsersViewSet
@@ -18,7 +18,7 @@ class ServiceUsersViewSetTest(APITestCase):
 
     def test_available_by_url(self):
         """
-        Доступно по url
+        Тест: Доступно по url
         """
         self.client.force_authenticate(self.staff_user)
         response = self.client.get(self.url)
