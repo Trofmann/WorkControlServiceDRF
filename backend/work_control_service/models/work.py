@@ -1,7 +1,5 @@
-from datetime import datetime
-from django.utils.timezone import now
-
 from django.db import models
+from django.utils.timezone import now
 
 __all__ = [
     'Work'
