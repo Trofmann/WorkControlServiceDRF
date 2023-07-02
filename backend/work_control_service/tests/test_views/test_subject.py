@@ -1,10 +1,9 @@
 from rest_framework.reverse import reverse
-from rest_framework.test import APITestCase, APIRequestFactory, force_authenticate
 from rest_framework.status import HTTP_200_OK
+from rest_framework.test import APITestCase, APIRequestFactory
 
 from cabinet.models import ServiceUser
 from ...models import Subject
-from ...views import SubjectViewSet
 from ...serializers import SubjectSerializer
 
 factory = APIRequestFactory()
