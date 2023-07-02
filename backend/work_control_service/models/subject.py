@@ -36,17 +36,17 @@ class Subject(models.Model):
     def __str__(self):
         return self.name
 
-    def get_status_works_count(self, status: Work.StatusType) -> int:
+    def __get_status_works_count(self, status: Work.StatusType) -> int:
         return self.works.filter(status=status).count()
 
     @property
     def not_started_works_count(self) -> int:
-        return self.get_status_works_count(status=Work.StatusType.NOT_STARTED)
+        return self.__get_status_works_count(status=Work.StatusType.NOT_STARTED)
 
     @property
     def in_work_works_count(self) -> int:
-        return self.get_status_works_count(status=Work.StatusType.IN_WORK)
+        return self.__get_status_works_count(status=Work.StatusType.IN_WORK)
 
     @property
     def completed_works_count(self) -> int:
-        return self.get_status_works_count(status=Work.StatusType.COMPLETED)
+        return self.__get_status_works_count(status=Work.StatusType.COMPLETED)

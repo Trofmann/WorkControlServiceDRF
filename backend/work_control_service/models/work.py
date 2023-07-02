@@ -55,9 +55,9 @@ class Work(models.Model):
     def expired(self):
         if self.deadline:
             today = datetime.datetime.now().date()
-            return not self.complited and (today > self.deadline)
+            return not self.completed and (today > self.deadline)
         return False
 
     @property
-    def complited(self):
+    def completed(self):
         return self.status == self.StatusType.COMPLETED
