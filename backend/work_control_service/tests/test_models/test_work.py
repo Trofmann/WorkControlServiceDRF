@@ -19,7 +19,7 @@ class WorkModelTest(TestCase):
         self.work_statuses_not_completed = [Work.StatusType.NOT_STARTED, Work.StatusType.IN_WORK]
         self.today = now().date()
 
-    def create_not_completed_work(self, deadline: date, name='work') -> Work:
+    def create_not_completed_work(self, deadline: date, name: str = 'work') -> Work:
         """
         Создание невыполненной работы
         """
