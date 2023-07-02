@@ -17,5 +17,4 @@ class SubjectSerializer(ModelSerializer):
             'not_started_works_count',
             'in_work_works_count',
             'completed_works_count',
-            'user_id',
         ]
