@@ -1,7 +1,7 @@
-import datetime
+from datetime import datetime
+from django.utils.timezone import now
 
 from django.db import models
-
 
 __all__ = [
     'Work'
@@ -10,10 +10,11 @@ __all__ = [
 
 class Work(models.Model):
     """Работа по предмету"""
+
     class StatusType(models.TextChoices):
-        NOT_STARTED = 'Не начато', 'Не начато'
-        IN_WORK = 'В работе', 'В работе'
-        COMPLETED = 'Выполнено', 'Выполнено'
+        NOT_STARTED = 1, 'Не начато'
+        IN_WORK = 2, 'В работе'
+        COMPLETED = 3, 'Выполнено'
 
     subject = models.ForeignKey(
         to='work_control_service.Subject',
@@ -54,7 +55,7 @@ class Work(models.Model):
     @property
     def expired(self):
         if self.deadline:
-            today = datetime.datetime.now().date()
+            today = now().date()
             return not self.completed and (today > self.deadline)
         return False
 
